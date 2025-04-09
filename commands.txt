@@ -1,0 +1,43 @@
+docker push highsparrow11/gateway:latest
+
+minikube start
+
+kubectl apply -f ./
+
+kubectl scale deployment --replicas=0 gateway
+
+kubectl describe pvc
+
+kubectl delete -f ./
+
+minikube tunnel --bind-address=127.0.0.1
+
+sand.dudh@tmpmail.com | admin123
+
+============ MINIKUBE ==============
+minikube start
+
+minikube tunnel --bind-address=127.0.0.1
+
+start mysql, auth, converter, rabbit, gateway
+
+-- start sql
+kubectl apply -f mysql/manifests/
+
+-- Start auth
+kubectl apply -f auth/manifests/
+change db ip
+
+-- start gateway
+kubectl apply -f gateway/manifests/
+
+-- start rabbit
+kubectl apply -f rabbit/manifests/
+
+-- start tunnel for ingress
+minikube tunnel --bind-address=127.0.0.1
+
+create queues
+
+-- start converter
+kubectl apply -f converter/manifests/
